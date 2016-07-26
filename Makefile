@@ -1,5 +1,5 @@
 TWEAK_NAME = Xgress
-Xgress_FILES = Tweak.mm
+Xgress_FILES = Tweak.xm
 
 export TARGET = iphone:clang
 export ARCHS = armv7 arm64

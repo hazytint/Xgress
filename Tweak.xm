@@ -62,3 +62,11 @@ static void __attribute__((constructor)) constructor() {
         MSHookFunction((FILE **)MSFindSymbol(NULL, "_fopen"), (FILE **)optimized_fopen, (FILE ***)&original_fopen);
     }
 }
+
+%hook UIApplication
+- (BOOL)canOpenURL:(NSURL *)url
+{
+  if ([url.scheme hasPrefix:@"cydia"]) return NO;
+  return %orig;
+}
+%end
